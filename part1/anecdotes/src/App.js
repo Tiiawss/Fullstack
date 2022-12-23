@@ -21,31 +21,29 @@ const App = () => {
   
   const randomiser = Math.floor(Math.random() * 7)
   const [selected, setSelected] = useState(0)
-  const [vote, setVote] = useState(Array(7).fill(0))
+  const [votes, setVotes] = useState([0,0,0,0,0,0,0])
   const [mostVotes, setMostVotes] = useState(0)
-  
 
+  const vote = () => {
+    const copy = [...votes]
+    copy[selected] += 1
+    setVotes(copy)
+    if (copy[selected] > copy[mostVotes]) {
+      setMostVotes(selected)
+    }
+  }
+  
   return (
     <div>
       <h1>Anecdote of the day</h1>
       <p>{anecdotes[selected]}</p>
-      <p>has {vote[selected]} votes</p>
+      <p>has {votes[selected]} votes</p>
       <p></p>
       <Button valueName = "next anecdote" handleClick = {() => setSelected(randomiser)} />
-      <Button valueName = "vote" handleOnClick = {() => {
-        let copy = [...vote]
-        copy[selected]++
-        vote[selected] += 1 
-        setVote(copy)
-        if (copy[selected] > copy[mostVotes]) {
-
-          setMostVotes(selected)
-        }
-      }}/>
-      
+      <button onClick={vote}>vote</button>
       <h1>Anecdote with most votes</h1>
       <p>{anecdotes[mostVotes]}</p>
-      <p>has {vote[mostVotes]} votes</p>
+      <p>has {votes[mostVotes]} votes</p>
     </div>
   )
 }
