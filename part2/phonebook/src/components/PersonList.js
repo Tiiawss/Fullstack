@@ -20,8 +20,11 @@
             console.log("person in list", person)
             return(
             <p key = {person.name}>
-                {person.name} {person.number}
+                {person.name} {person.number} >
             </p> 
+            
+            
+            
             )}
             )}
         </div>
