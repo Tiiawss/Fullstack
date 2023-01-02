@@ -1,15 +1,11 @@
-const Filter = ({ nameFilter, setNameFilter }) => {
-    return (
-      <div>
-        <p>filter shown with
-        <input
-          value={nameFilter}
-          onChange={(event) => {
-            setNameFilter(event.target.value)
-          }}
-        />
-        </p>
-      </div>
-    )
-  }
+const Filter = ({ value, handleChange }) => {
+  return <>
+    Filter shown with
+    <input
+      value={value}
+      onChange={handleChange}
+    />
+  </>
+}
+
 export default Filter
