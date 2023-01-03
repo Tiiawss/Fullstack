@@ -19,6 +19,7 @@
     "eject": "react-scripts eject",
     "server": "json-server -p3001 --watch db.json"
   },
+  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -42,5 +43,7 @@
   },
   "resolutions": {
     "mini-css-extract-plugin": "2.4.5"
-  }
+  },
+  "proxy": "http://localhost:3001"
+
 }
